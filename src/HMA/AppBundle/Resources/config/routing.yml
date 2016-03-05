@@ -1,3 +1,7 @@
 hma_app_home:
     path:     /
     defaults: { _controller: HMAAppBundle:App:home }
+
+hma_app_workshop:
+    path:     /workshop
+    defaults: { _controller: HMAAppBundle:App:workshop }

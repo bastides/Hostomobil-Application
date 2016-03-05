@@ -5,3 +5,19 @@
 #home-connexion {
     margin-top: 5%;
 }
+
+#formulaire {
+    margin-top: 5%;
+}
+
+.form-control {
+    margin-bottom: 5px;
+}
+
+#error-login{
+    margin-top: 5px;
+}
+
+placeholder {
+    color: gray;
+}

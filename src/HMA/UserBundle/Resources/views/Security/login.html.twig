@@ -1,0 +1,20 @@
+{# src/HMA/UserBundle/Resources/views/Security/login.html.twig #}
+
+{% extends "HMAAppBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div id="formulaire">
+            <form action="{{ path('login_check') }}" method="post" class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+                <input type="text" name="_username" id="username" placeholder="Nom" class="form-control" autocomplete="off" required />
+                <input type="text" name="_password" id="password" placeholder="Mot de passe" class="form-control" autocomplete="off" required />
+                <input type="submit" value="Connexion" name="connexion" class="btn btn-danger btn-block" />
+                {% if error %}
+                    <p id="error-login" class="alert alert-danger text-center">
+                        {{ error.message }}
+                    </p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+{% endblock %}
