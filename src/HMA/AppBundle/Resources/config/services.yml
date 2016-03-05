@@ -1,0 +1,4 @@
+services:
+#    hma_app.example:
+#        class: HMA\AppBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

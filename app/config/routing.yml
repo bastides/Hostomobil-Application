@@ -1,0 +1,3 @@
+hma_app:
+    resource: "@HMAAppBundle/Resources/config/routing.yml"
+    prefix:   /
