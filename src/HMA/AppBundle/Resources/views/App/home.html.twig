@@ -1,0 +1,18 @@
+{# src/HMA/AppBundle/Resources/Views/App/home.html.twig #}
+
+{% extends "HMAAppBundle::layout.html.twig" %}
+
+{% block stylesheets %} {{ parent() }} {% endblock %}
+
+{% block title %} {{ parent() }} - Application {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="logo" class="row">
+            <img class="img-responsive col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6" src="{{ asset('img/logo.png') }}" alt="logo" />
+        </div>
+        <div id="home-connexion" class="row col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+            <a href="#" class="btn btn-danger btn-block ">Connexion</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,3 +1,3 @@
-hma_app_homepage:
+hma_app_home:
     path:     /
-    defaults: { _controller: HMAAppBundle:Default:index }
+    defaults: { _controller: HMAAppBundle:App:home }
