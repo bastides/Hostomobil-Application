@@ -9,7 +9,17 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            
+            {{ form_start(formClient, {'attr': {'class': 'col-xs-offset-0 col-sm-4 col-sm-offset-2 workshop-forms'}}) }}
+                <p> {{ form_widget(formClient.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }} </p>
+                <p> {{ form_widget(formClient.save, {'attr': {'class': 'btn btn-danger btn-block'}}) }} </p>
+                <p> {{ form_errors(formClient.nom, {'attr': {'class': 'alert alert-danger text-center'}}) }} </p>
+            {{ form_end(formClient) }}
+
+            {{ form_start(formVehicule, {'attr': {'class': 'col-sm-4 workshop-forms'}}) }}
+                <p> {{ form_widget(formVehicule.immat, {'attr': {'class': 'form-control', 'placeholder': 'Immatriculation'}}) }} </p>
+                <p> {{ form_widget(formVehicule.save, {'attr': {'class': 'btn btn-danger btn-block'}}) }} </p>
+                <p> {{ form_errors(formVehicule.immat, {'attr': {'class': 'alert alert-danger text-center'}}) }} </p>
+            {{ form_end(formVehicule) }}
         </div>
     </div>
 {% endblock %}
