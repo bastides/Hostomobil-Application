@@ -9,6 +9,14 @@
 {% block body %}
     <div class="container">
         <div class="row">
+            <div id="workshop-logout">
+                <p>
+                    <a href="{{ path('logout') }}"><i id="icon-power-off" class="fa fa-power-off"></i></a>
+                    <span id="user-name"> {{ app.user.username }} </span>
+                 </p>
+            </div>
+        </div>
+        <div class="row">
             {{ form_start(formClient, {'attr': {'class': 'col-xs-offset-0 col-sm-4 col-sm-offset-2 workshop-forms'}}) }}
                 <p> {{ form_widget(formClient.nom, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }} </p>
                 <p> {{ form_widget(formClient.save, {'attr': {'class': 'btn btn-danger btn-block'}}) }} </p>

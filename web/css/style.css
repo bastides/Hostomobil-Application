@@ -25,3 +25,26 @@ placeholder {
 .workshop-forms {
     margin-top: 5%;
 }
+
+#workshop-logout{
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+#icon-power-off {
+    font-size: 20px;
+    background-color: #d9534f;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+#icon-power-off:hover {
+    background-color: #d43f3a;
+}
+
+#user-name{
+    font-size: 1.5em;
+    margin-left: 10px;
+    font-weight: bold;
+}
