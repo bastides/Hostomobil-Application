@@ -29,5 +29,9 @@
                 <p> {{ form_errors(formVehicule.immat, {'attr': {'class': 'alert alert-danger text-center'}}) }} </p>
             {{ form_end(formVehicule) }}
         </div>
+
+        {% block container %}
+            
+        {% endblock %}
     </div>
 {% endblock %}

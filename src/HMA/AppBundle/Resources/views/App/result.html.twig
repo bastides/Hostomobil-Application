@@ -1,0 +1,134 @@
+{# src/HMA/AppBundle/Resources/Views/App/result.html.twig #}
+
+{% extends "HMAAppBundle:App:workshop.html.twig" %}
+
+{% block stylesheets %} {{ parent() }} {% endblock %}
+
+{% block title %} {{ parent() }} - Application {% endblock %}
+
+{% block container %}
+    <div id="customer-informations" class="row">
+        <hr />
+        {% for customer in customers %}
+        <div class="col-md-6 col-md-offset-3">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th class="table-head">Client</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="b">Non : </td>
+                        <td> {{ customer.nom }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Adresse : </td>
+                        <td> {{ customer.adresse }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Ville : </td>
+                        <td> {{ customer.ville }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">CP : </td>
+                        <td> {{ customer.codepostal }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Téléphone 1 : </td>
+                        <td> {{ customer.tel1 }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Téléphone 2 : </td>
+                        <td> {{ customer.tel2 }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Email : </td>
+                        <td> {{ customer.email }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <li>Aucun client trouvé</li>
+        {% endfor %}
+    </div>
+
+    <div id="vehicle-informations" class="row">
+        {% for vehicle in listVehicles %}
+        <div class="col-md-6">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th class="table-head">Véhicle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="b">Marque : </td>
+                        <td> {{ vehicle.marque }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Modèle : </td>
+                        <td> {{ vehicle.modele }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">1er M.E.C : </td>
+                        <td> {{ vehicle.mec|date('d-m-Y') }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">N° IMMAT : </td>
+                        <td> {{ vehicle.immat }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Kilomètre : </td>
+                        <td> {{ vehicle.kilometres }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Motorisation : </td>
+                        <td> {{ vehicle.motorisation }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Type : </td>
+                        <td> {{ vehicle.type }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Type Moteur : </td>
+                        <td> {{ vehicle.typemoteur }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">N° Série : </td>
+                        <td> {{ vehicle.sn }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Code Teinte : </td>
+                        <td> {{ vehicle.teinte }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">CT (Expire le) : </td>
+                        <td> {{ vehicle.ct|date('d-m-Y') }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Dimension Pneus Av : </td>
+                        <td> {{ vehicle.pneudimav }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Modéle Pneus Av : </td>
+                        <td> {{ vehicle.pneumodav }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Dimension Pneus Ar : </td>
+                        <td> {{ vehicle.pneudimar }} </td>
+                    </tr>
+                    <tr>
+                        <td class="b">Modéle Pneus Ar : </td>
+                        <td> {{ vehicle.pneumodar }} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+            <li>Aucun véhicule trouvé</li>
+        {% endfor %}
+    </div>
+{% endblock %}

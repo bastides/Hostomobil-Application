@@ -1,3 +1,7 @@
+.b {
+    font-weight: bold;
+}
+
 #logo {
      margin: 2%;
 }
@@ -47,4 +51,18 @@ placeholder {
     font-size: 1.5em;
     margin-left: 10px;
     font-weight: bold;
+}
+
+#customer-informations {
+    margin-top: 25px;
+}
+
+#vehicle-informations {
+    margin-top: 25px;
+}
+
+.table-head {
+    color: white;
+    background-color: black;
+    font-size: 1.3em;
 }

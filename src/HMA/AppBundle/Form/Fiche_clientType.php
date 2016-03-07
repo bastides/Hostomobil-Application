@@ -17,7 +17,6 @@ class Fiche_clientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction("#")
             ->add('nom', TextType::class, array('required' => false))
             ->add('save', SubmitType::class, array('label' => 'Valider'))
         ;

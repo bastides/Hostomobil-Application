@@ -17,7 +17,6 @@ class Fiche_vehiculeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->setAction("#")
             ->add('immat', TextType::class, array('required' => false))
             ->add('save', SubmitType::class, array('label' => 'Valider'))
         ;
