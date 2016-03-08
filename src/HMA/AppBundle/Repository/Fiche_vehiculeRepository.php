@@ -12,4 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class Fiche_vehiculeRepository extends EntityRepository
 {
+    public function getClient($immat)
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->where('v.immat = :immat')
+            ->setParameter('immat', $immat)
+            ->leftJoin('v.ficheclient', 'client')
+            ->addSelect('client')
+            ->getQuery()
+            ->getResult()
+        ;
+        
+        return $qb;
+    }
 }

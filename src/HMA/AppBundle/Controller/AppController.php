@@ -55,29 +55,22 @@ class AppController extends Controller
             ));
         }
 
-        /* if ($formVehicule->handleRequest($request)->isValid()) {
+        if ($formVehicule->handleRequest($request)->isValid()) {
             $formValue = $formVehicule->get('immat')->getData();
 
             $em = $this->getDoctrine()->getManager();
-            $vehicule = $em->getRepository('HMAAppBundle:Fiche_vehicule')->findBy(
-                array('immat' => $formValue)
-            );
+            $vehicule = $em->getRepository('HMAAppBundle:Fiche_vehicule')->getClient($formValue);
 
             if (null === $vehicule) {
                 throw new Exception("Le véhicule n'existe pas !");
             }
 
-            $client = $em->getRepository('HMAAppBundle:Fiche_client')->findBy(
-                array('id' => $vehicule->getFicheclient())
-            );
-
             return $this->render('HMAAppBundle:App:result.html.twig', array(
-                'customers' => $client,
-                'listVehicles' => $vehicle,
+                'listVehicles' => $vehicule,
                 'formClient' => $formClient->createView(),
                 'formVehicule' => $formVehicule->createView()
             ));
-        } */
+        }
 
         return $this->render('HMAAppBundle:App:workshop.html.twig', array(
             'formClient' => $formClient->createView(),

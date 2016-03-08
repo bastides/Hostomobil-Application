@@ -9,7 +9,52 @@
 {% block container %}
     <div id="customer-informations" class="row">
         <hr />
-        {% for customer in customers %}
+        {% if customers is defined %}
+            {% for customer in customers %}
+            <div class="col-md-6 col-md-offset-3">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="table-head">Client</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="b">Non : </td>
+                            <td> {{ customer.nom }} </td>
+                        </tr>
+                        <tr>
+                            <td class="b">Adresse : </td>
+                            <td> {{ customer.adresse }} </td>
+                        </tr>
+                        <tr>
+                            <td class="b">Ville : </td>
+                            <td> {{ customer.ville }} </td>
+                        </tr>
+                        <tr>
+                            <td class="b">CP : </td>
+                            <td> {{ customer.codepostal }} </td>
+                        </tr>
+                        <tr>
+                            <td class="b">Téléphone 1 : </td>
+                            <td> {{ customer.tel1 }} </td>
+                        </tr>
+                        <tr>
+                            <td class="b">Téléphone 2 : </td>
+                            <td> {{ customer.tel2 }} </td>
+                        </tr>
+                        <tr>
+                            <td class="b">Email : </td>
+                            <td> {{ customer.email }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+                <li>Aucun client trouvé</li>
+            {% endfor %}
+        {% else %}
+        {% for vehicle in listVehicles %}
         <div class="col-md-6 col-md-offset-3">
             <table class="table table-hover table-bordered">
                 <thead>
@@ -20,38 +65,39 @@
                 <tbody>
                     <tr>
                         <td class="b">Non : </td>
-                        <td> {{ customer.nom }} </td>
+                        <td> {{ vehicle.ficheclient.nom }} </td>
                     </tr>
                     <tr>
                         <td class="b">Adresse : </td>
-                        <td> {{ customer.adresse }} </td>
+                        <td> {{ vehicle.ficheclient.adresse }} </td>
                     </tr>
                     <tr>
                         <td class="b">Ville : </td>
-                        <td> {{ customer.ville }} </td>
+                        <td> {{ vehicle.ficheclient.ville }} </td>
                     </tr>
                     <tr>
                         <td class="b">CP : </td>
-                        <td> {{ customer.codepostal }} </td>
+                        <td> {{ vehicle.ficheclient.codepostal }} </td>
                     </tr>
                     <tr>
                         <td class="b">Téléphone 1 : </td>
-                        <td> {{ customer.tel1 }} </td>
+                        <td> {{ vehicle.ficheclient.tel1 }} </td>
                     </tr>
                     <tr>
                         <td class="b">Téléphone 2 : </td>
-                        <td> {{ customer.tel2 }} </td>
+                        <td> {{ vehicle.ficheclient.tel2 }} </td>
                     </tr>
                     <tr>
                         <td class="b">Email : </td>
-                        <td> {{ customer.email }} </td>
+                        <td> {{ vehicle.ficheclient.email }} </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         {% else %}
-            <li>Aucun client trouvé</li>
+            <li>Aucun véhicule trouvé</li>
         {% endfor %}
+        {% endif %}
     </div>
 
     <div id="vehicle-informations" class="row">
