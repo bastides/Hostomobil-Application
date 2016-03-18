@@ -25,4 +25,23 @@ class Fiche_vehiculeRepository extends EntityRepository
         
         return $qb;
     }
+    
+    public function findImmat($term)
+    {
+        $qb = $this->createQueryBuilder('v')
+            ->where('v.immat LIKE :immat')
+            ->setParameter('immat', '%'.$term.'%')
+        ;
+        
+        $arrayAss = $qb->getQuery()->getArrayResult();
+         
+        // Transformer le tableau associatif en un tableau standard
+        $array = array();
+        foreach($arrayAss as $data)
+        {
+            $array[] = $data['immat'];
+        }
+     
+        return $array;
+    }
 }

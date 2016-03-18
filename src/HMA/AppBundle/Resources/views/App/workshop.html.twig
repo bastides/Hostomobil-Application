@@ -35,3 +35,53 @@
         {% endblock %}
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery1.12.1.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+    $(function() {
+        $('#fiche_client_nom').autocomplete({
+            source : function(requete, reponse){
+                var motcle = $('#fiche_client_nom').val();
+                var DATA = 'motcle=' + motcle;
+
+                $.ajax({
+                    type:"POST",
+                    url : "{{ path('hma_app_workshop_ajaxnom') }}",
+                    dataType : 'json',
+                    data : DATA,
+
+                    success : function(donnee){
+                        reponse($.map(donnee, function(objet){
+                            return objet;
+                        }));
+                    }
+                });
+            }
+        });
+        
+        $('#fiche_vehicule_immat').autocomplete({
+            source : function(requete, reponse){
+                var motcle = $('#fiche_vehicule_immat').val();
+                var DATA = 'motcle=' + motcle;
+
+                $.ajax({
+                    type:"POST",
+                    url : "{{ path('hma_app_workshop_ajaximmat') }}",
+                    dataType : 'json',
+                    data : DATA,
+
+                    success : function(donnee){
+                        reponse($.map(donnee, function(objet){
+                            return objet;
+                        }));
+                    }
+                });
+            }
+        });
+    });
+    </script>
+{% endblock %}

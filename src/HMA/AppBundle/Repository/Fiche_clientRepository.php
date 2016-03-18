@@ -12,4 +12,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class Fiche_clientRepository extends EntityRepository
 {
+    public function findName($term)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.nom LIKE :nom')
+            ->setParameter('nom', '%'.$term.'%')
+        ;
+        
+        $arrayAss = $qb->getQuery()->getArrayResult();
+         
+        // Transformer le tableau associatif en un tableau standard
+        $array = array();
+        foreach($arrayAss as $data)
+        {
+            $array[] = $data['nom'];
+        }
+     
+        return $array;
+    }
 }

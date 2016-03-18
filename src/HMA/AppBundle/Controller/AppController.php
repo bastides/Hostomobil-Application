@@ -77,4 +77,42 @@ class AppController extends Controller
             'formVehicule' => $formVehicule->createView()
         ));
     }
+    
+    public function ajaxNomAction()
+    {
+        $request = $this->get('request');
+         
+        if ($request->isXmlHttpRequest()) {
+            $term = $request->request->get('motcle');
+             
+            $array= $this->getDoctrine()
+                ->getEntityManager()
+                ->getRepository('HMAAppBundle:Fiche_client')
+                ->findName($term);
+             
+            $response = new Response(json_encode($array));
+             
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+        }
+    }
+    
+    public function ajaxImmatAction()
+    {
+        $request = $this->get('request');
+         
+        if ($request->isXmlHttpRequest()) {
+            $term = $request->request->get('motcle');
+             
+            $array= $this->getDoctrine()
+                ->getEntityManager()
+                ->getRepository('HMAAppBundle:Fiche_vehicule')
+                ->findImmat($term);
+             
+            $response = new Response(json_encode($array));
+             
+            $response->headers->set('Content-Type', 'application/json');
+            return $response;
+        }
+    }
 }

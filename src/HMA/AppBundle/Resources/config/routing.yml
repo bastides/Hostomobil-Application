@@ -5,3 +5,15 @@ hma_app_home:
 hma_app_workshop:
     path:     /workshop
     defaults: { _controller: HMAAppBundle:App:workshop }
+
+hma_app_workshop_ajaxnom:
+    path:     /workshop/ajaxnom
+    defaults: { _controller: HMAAppBundle:App:ajaxNom }
+    requirements:
+        _method: POST
+        
+hma_app_workshop_ajaximmat:
+    path:     /workshop/ajaximmat
+    defaults: { _controller: HMAAppBundle:App:ajaxImmat }
+    requirements:
+        _method: POST
