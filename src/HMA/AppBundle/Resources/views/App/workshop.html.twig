@@ -36,11 +36,7 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}
-    <script src="{{ asset('js/jquery1.12.1.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+{% block javascripts %} {{ parent() }}
     <script>
     $(function() {
         $('#fiche_client_nom').autocomplete({
@@ -83,5 +79,9 @@
             }
         });
     });
+        
+    window.onload = function() {
+        $('#fiche_client_nom, #fiche_vehicule_immat').val('');
+    };
     </script>
 {% endblock %}
