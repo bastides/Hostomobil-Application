@@ -140,7 +140,7 @@ class Fiche_vehicule
 
     /**
      * @ORM\ManyToOne(targetEntity="HMA\AppBundle\Entity\Fiche_client", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="idfiche_client", referencedColumnName="id", nullable=false)
      */
      private $ficheclient;
 

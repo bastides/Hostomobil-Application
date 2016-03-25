@@ -3,6 +3,7 @@
 namespace HMA\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Fiche_vehicule
@@ -39,6 +40,10 @@ class Fiche_vehicule
      * @var string
      *
      * @ORM\Column(name="immat", type="string", length=15, nullable=true)
+     * @Assert\Regex(
+     *  pattern="/[A-Za-z0-9-\/]/",
+     *  message="Immatriculation inconnue"
+     * )
      */
     private $immat;
 
@@ -135,7 +140,7 @@ class Fiche_vehicule
 
     /**
      * @ORM\ManyToOne(targetEntity="HMA\AppBundle\Entity\Fiche_client", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="idfiche_client", referencedColumnName="id", nullable=false)
      */
      private $ficheclient;
 
@@ -516,5 +521,28 @@ class Fiche_vehicule
     public function getCt()
     {
         return $this->ct;
+    }
+
+    /**
+     * Set ficheclient
+     *
+     * @param \HMA\AppBundle\Entity\Fiche_client $ficheclient
+     * @return Fiche_vehicule
+     */
+    public function setFicheclient(\HMA\AppBundle\Entity\Fiche_client $ficheclient)
+    {
+        $this->ficheclient = $ficheclient;
+
+        return $this;
+    }
+
+    /**
+     * Get ficheclient
+     *
+     * @return \HMA\AppBundle\Entity\Fiche_client
+     */
+    public function getFicheclient()
+    {
+        return $this->ficheclient;
     }
 }
