@@ -265,14 +265,4 @@ class Fiche_client
     {
         return $this->email;
     }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 }

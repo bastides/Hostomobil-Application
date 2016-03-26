@@ -16,7 +16,7 @@ class Fiche_vehicule
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="idfiche_vehicule", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -140,20 +140,9 @@ class Fiche_vehicule
 
     /**
      * @ORM\ManyToOne(targetEntity="HMA\AppBundle\Entity\Fiche_client", cascade={"persist"})
-     * @ORM\JoinColumn(name="idfiche_client", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="idfiche_client", referencedColumnName="idfiche_client", nullable=false)
      */
      private $ficheclient;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set marque
@@ -544,5 +533,15 @@ class Fiche_vehicule
     public function getFicheclient()
     {
         return $this->ficheclient;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
